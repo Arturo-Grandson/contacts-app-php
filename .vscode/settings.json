@@ -1,0 +1,14 @@
+{
+    "[php]": {
+        "editor.tabSize": 2
+    },
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+
+    "files.insertFinalNewline": true,
+    "editor.fontFamily": "'CodeNewRoman NF', Menlo, Monaco, 'Courier New', monospace"
+}
