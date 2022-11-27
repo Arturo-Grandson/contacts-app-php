@@ -1,3 +1,27 @@
+<?php
+//Si la variable global $SERVER contiene el methodo POST, guarda en el array $contact el valor de "name" del la variable globarl $_POST
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $contact = [
+    "name" => $_POST["name"],
+    "phone_number" => $_POST["phone_number"],
+  ];
+  //Si contacts.json existe, extraemos la informaci'on y la guardamos en el array $contacts, sino, $contacts queda vacio
+  if(file_exists("contacts.json")){
+    $contacts = json_decode(file_get_contents("contacts.json"), true);
+  } else {
+    $contacts = [];
+  }
+
+//esta operacion es equivalente a contacts.push(contact) en javaScript.
+  $contacts[] = $contact;
+//guarda en un archivo "contacts.json" con formato json, lo que contenga el array $contacts
+  file_put_contents("contacts.json", json_encode($contacts));
+
+  //Redirige a index.php
+  header("location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +82,7 @@
           <div class="card">
             <div class="card-header">Add New Contact</div>
             <div class="card-body">
-              <form>
+              <form method="POST" action="./add.php">
                 <div class="mb-3 row">
                   <label for="name" class="col-md-4 col-form-label text-md-end">Name</label>
     

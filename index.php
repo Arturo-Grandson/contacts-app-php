@@ -1,10 +1,9 @@
 <?php
-$contacts = [
-  ["name" => "Arturo", "phone_number" => "664045"],
-  ["name" => "Antoñi", "phone_number" => "654599"],
-  ["name" => "Mariela", "phone_number" => "15042022"],
-];
-
+if(file_exists("contacts.json")){
+  $contacts = json_decode(file_get_contents("contacts.json"), true);
+} else {
+  $contacts = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +54,7 @@ $contacts = [
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./add.html">Add Contact</a>
+              <a class="nav-link" href="./add.php">Add Contact</a>
             </li>
           </ul>
         </div>
@@ -65,6 +64,14 @@ $contacts = [
     <main>
       <div class="container pt-4 p-3">
         <div class="row">
+        <?php if(count($contacts) == 0): ?>
+          <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+              <p>No conteacts saved yet</p>
+              <a href="./add.php">Add One!</a>
+            </div>
+          </div>
+        <?php endif ?>
 
         <?php
         foreach ($contacts as $contact): ?>
