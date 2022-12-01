@@ -32,8 +32,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ":phone_number" => $_POST["phone_number"],
       ]);
     
-      //Redirige a index.php
-      header("location: index.php");
+      //Redirige a home.php
+      header("location: home.php");
 
     }
 

@@ -24,8 +24,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $statement->bindParam(":phone_number", $_POST["phone_number"]);
       $statement->execute();
     
-      //Redirige a index.php
-      header("location: index.php");
+      //Redirige a home.php
+      header("location: home.php");
 
     }
 }
