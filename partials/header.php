@@ -17,9 +17,12 @@
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
     crossorigin="anonymous">
   </script>
+ <!-- $uri contiene el metodo parse_url, que recibe dos parametros, el primero es $_SERVER["REQUEST_URI"] que contiene el URI y lo que queremos
+ extraer del URI, que en este caso es el PATH de la URL -->
 
+ <!-- si $uri reibe la url "/contacts-app/" y "/contacts-app/index.php" ejecuta el archivo welcome.js mediante las etiquedas <script></script> -->
   <link rel="stylesheet" href="./static/css/index.css" />
-  <?php $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);?>
+  <?php $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH); ?>
   <?php if($uri == "/contacts-app/" && $uri == "/contacts-app/index.php"): ?>
     <script defer src="./static/js/welcome.js"></script>
   <?php endif ?>
