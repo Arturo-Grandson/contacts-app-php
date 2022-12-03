@@ -9,7 +9,7 @@ if(!isset($_SESSION["user"])){
 }
 //hace una conexion a la base de datos con un metodo query que recibe la sentencia SQL SELECT, para guardar en $contacts, todos los contactos
 //que hay en la base de datos. para luego mostrarlos en el home.php
-$contacts = $conn->query("SELECT * FROM contacts");
+$contacts = $conn->query("SELECT * FROM contacts WHERE user_id = {$_SESSION['user']['id']}");
 
 ?>
 
