@@ -1,5 +1,12 @@
 <?php
 require "database.php";
+
+session_start();
+
+if(!isset($_SESSION["user"])){
+  header("Location: login.php");
+  return;
+}
 //hace una conexion a la base de datos con un metodo query que recibe la sentencia SQL SELECT, para guardar en $contacts, todos los contactos
 //que hay en la base de datos. para luego mostrarlos en el home.php
 $contacts = $conn->query("SELECT * FROM contacts");

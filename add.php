@@ -1,5 +1,11 @@
 <?php
 require "database.php";
+
+if(!isset($_SESSION["user"])){
+  header("Location: login.php");
+  return;
+}
+
 //Si la variable global $SERVER contiene el methodo POST, guarda en el array $contact el valor de "name" del la variable global $_POST
 
 $error = null;
